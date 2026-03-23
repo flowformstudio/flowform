@@ -474,6 +474,7 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   left: 0 !important;
   right: 0 !important;
   width: 100% !important;
+  height: 60px !important;
   z-index: 9999 !important;
   transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease !important;
 }
@@ -483,68 +484,27 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   -webkit-backdrop-filter: blur(16px) !important;
   border-bottom: 1px solid rgba(255,255,255,0.07) !important;
 }
-/* Nav inner — edge to edge, flex row, logo left, btn right */
+/* Hide all nav internals via visibility so the video bg doesn't render */
 .navbar-new .page-padding,
 .navbar-new .nav,
 .navbar-new .nav-container,
-.navbar-new .w-container {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  padding: 10px 32px !important;
-  margin: 0 !important;
-  box-sizing: border-box !important;
-}
-/* Hide video bg, decorative img, hamburger — keep logo + btn */
-.navbar-new .liqquid-glass.topmenu video,
-.navbar-new .liqquid-glass.topmenu > div[style*="background-image"],
-.navbar-new .image-81,
-.navbar-new .w-nav-menu,
-.navbar-new .menu-button-new {
-  display: none !important;
-}
-/* Strip the video wrapper bg + stretch to full width */
-.navbar-new .liqquid-glass.topmenu {
-  background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  width: 100% !important;
-  flex: 1 1 100% !important;
-}
-/* Hide the secondary navitem video block */
-.navbar-new .liqquid-glass.navitem {
-  display: none !important;
-}
-/* Layout: logo snapped left, btn snapped right */
+.navbar-new .w-container,
+.navbar-new .liqquid-glass,
 .navbar-new .nav-menu-wrapper {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  padding: 0 !important;
-  gap: 0 !important;
+  visibility: hidden !important;
 }
-.navbar-new .brand-logo-link-new {
-  margin-right: auto !important;
-  flex-shrink: 0 !important;
-}
+/* Un-hide just the logo and button so they show through */
+.navbar-new .brand-logo-link-new,
+.navbar-new .brand-logo-link-new *,
 .navbar-new .ff-get-started-btn {
-  margin-left: auto !important;
-  flex-shrink: 0 !important;
+  visibility: visible !important;
 }
-.navbar-new .nav-container,
-.navbar-new .w-container {
-  max-width: 100% !important;
-  width: 100% !important;
-  padding: 0 !important;
-}
-.navbar-new .page-padding,
-.navbar-new .nav {
-  padding: 10px 32px !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
+/* Logo pinned to top-left */
+.navbar-new .brand-logo-link-new {
+  position: fixed !important;
+  left: 32px !important;
+  top: 16px !important;
+  z-index: 10001 !important;
 }
 /* White logo */
 .brand-logo-new {
@@ -552,9 +512,13 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   height: 28px !important;
   width: auto !important;
 }
-/* Get Started btn */
+/* Get Started btn pinned to top-right */
 .ff-get-started-btn {
   display: none;
+  position: fixed !important;
+  right: 32px !important;
+  top: 12px !important;
+  z-index: 10001 !important;
   padding: 0.45rem 1.1rem;
   background: #f05a28;
   color: #fff !important;
@@ -566,7 +530,6 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   letter-spacing: 0.04em;
   transition: opacity 0.2s;
   white-space: nowrap;
-  margin-left: auto;
 }
 .ff-get-started-btn:hover { opacity: 0.85; }
 .navbar-new.ff-scrolled .ff-get-started-btn {
@@ -584,6 +547,11 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 }
 .navitem:hover, .w-nav-link:hover {
   color: #f0ede8 !important;
+}
+
+/* Animated line element next to hero button */
+.liqquid-glass.center {
+  display: none !important;
 }
 
 /* 6. BUTTONS */
@@ -914,38 +882,39 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   min-height: 0 !important;
   height: auto !important;
 }
-/* Smooth FAQ — grid-row trick (no overlay glitch) */
+/* Smooth FAQ — max-height transition */
 #faq .w-dropdown-list {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
   position: static !important;
-  display: grid !important;
-  grid-template-rows: 0fr !important;
-  transition: grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1) !important;
   padding: 0 !important;
   z-index: auto !important;
   overflow: hidden !important;
+  max-height: 0 !important;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1) !important;
 }
 #faq .w-dropdown.ff-open .w-dropdown-list {
-  grid-template-rows: 1fr !important;
+  max-height: 500px !important;
+}
+#faq .w-dropdown-list *,
+.ff-faq-body,
+.ff-faq-body * {
+  background: transparent !important;
+  background-color: transparent !important;
 }
 .ff-faq-body {
-  overflow: hidden;
-  min-height: 0;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  background: transparent;
-  color: rgba(240,237,232,0.65);
+  transition: opacity 0.3s ease 0.05s;
+  color: rgba(240,237,232,0.65) !important;
   font-family: 'Satoshi', sans-serif;
   font-size: 0.95rem;
   line-height: 1.65;
-  padding: 0 28px 0;
+  padding: 0 0 20px;
 }
 .ff-faq-item.ff-open .ff-faq-body {
   opacity: 1;
-  padding: 0 28px 20px;
 }
 .ff-faq-chevron {
   transition: transform 0.35s cubic-bezier(0.4,0,0.2,1) !important;
