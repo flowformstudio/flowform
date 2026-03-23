@@ -509,8 +509,9 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 /* White logo */
 .brand-logo-new {
   filter: brightness(0) invert(1) !important;
-  height: 28px !important;
+  height: 32px !important;
   width: auto !important;
+  display: block !important;
 }
 /* Get Started btn pinned to top-right */
 .ff-get-started-btn {
@@ -1395,11 +1396,37 @@ section#plans .container-huge,
   } else { initFAQ(); }
 })();
 
-// Sticky nav — show blurred bg + Get Started after scrolling past hero
+// Sticky nav — pin logo left, button right, blurred bg on scroll
 (function() {
   var nav = document.querySelector('.navbar-new');
   if (!nav) return;
-  var hero = document.querySelector('.hero-section') || document.querySelector('[class*="hero"]') || document.querySelector('.section_main');
+
+  function pinNavItems() {
+    var logo = nav.querySelector('.brand-logo-link-new');
+    var btn = nav.querySelector('.ff-get-started-btn');
+    if (logo) {
+      logo.style.setProperty('position', 'fixed', 'important');
+      logo.style.setProperty('left', '32px', 'important');
+      logo.style.setProperty('top', '16px', 'important');
+      logo.style.setProperty('z-index', '10001', 'important');
+      logo.style.setProperty('visibility', 'visible', 'important');
+      logo.style.setProperty('display', 'block', 'important');
+    }
+    if (btn) {
+      btn.style.setProperty('position', 'fixed', 'important');
+      btn.style.setProperty('right', '32px', 'important');
+      btn.style.setProperty('top', '12px', 'important');
+      btn.style.setProperty('z-index', '10001', 'important');
+      btn.style.setProperty('visibility', 'visible', 'important');
+    }
+  }
+
+  // Run immediately and after Webflow initializes
+  pinNavItems();
+  window.addEventListener('load', pinNavItems);
+  setTimeout(pinNavItems, 300);
+
+  var hero = document.querySelector('.section_main') || document.querySelector('[class*="hero"]');
   function onScroll() {
     var threshold = hero ? hero.offsetHeight * 0.7 : 400;
     nav.classList.toggle('ff-scrolled', window.scrollY > threshold);
