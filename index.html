@@ -461,82 +461,56 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   color: #f0ede8 !important;
 }
 
-/* 5. NAVIGATION */
+/* 5. NAVIGATION — Webflow nav hidden, replaced by #ff-nav injected via JS */
 .navbar-new {
-  background: transparent !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  width: 100% !important;
-  height: 60px !important;
-  z-index: 9999 !important;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease !important;
-}
-.navbar-new.ff-scrolled {
-  background: rgba(8,10,13,0.88) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(255,255,255,0.07) !important;
-}
-/* Hide all nav internals via visibility so the video bg doesn't render */
-.navbar-new .page-padding,
-.navbar-new .nav,
-.navbar-new .nav-container,
-.navbar-new .w-container,
-.navbar-new .liqquid-glass,
-.navbar-new .nav-menu-wrapper {
   visibility: hidden !important;
+  pointer-events: none !important;
 }
-/* Un-hide just the logo and button so they show through */
-.navbar-new .brand-logo-link-new,
-.navbar-new .brand-logo-link-new *,
-.navbar-new .ff-get-started-btn {
-  visibility: visible !important;
+#ff-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-sizing: border-box;
+  background: transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, border-bottom-color 0.3s ease;
+  border-bottom: 1px solid transparent;
+  pointer-events: auto;
 }
-/* Logo pinned to top-left */
-.navbar-new .brand-logo-link-new {
-  position: fixed !important;
-  left: 32px !important;
-  top: 16px !important;
-  z-index: 10001 !important;
+#ff-nav.ff-scrolled {
+  background: rgba(8,10,13,0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: rgba(255,255,255,0.07);
 }
-/* White logo */
-.brand-logo-new {
-  filter: brightness(0) invert(1) !important;
-  height: 32px !important;
-  width: auto !important;
-  display: block !important;
+#ff-nav-logo img {
+  height: 32px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
 }
-/* Get Started btn pinned to top-right */
-.ff-get-started-btn {
+#ff-nav-btn {
   display: none;
-  position: fixed !important;
-  right: 32px !important;
-  top: 12px !important;
-  z-index: 10001 !important;
-  padding: 0.45rem 1.1rem;
+  padding: 0.45rem 1.2rem;
   background: #f05a28;
-  color: #fff !important;
+  color: #fff;
   border-radius: 100px;
   font-family: 'Satoshi', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 0.04em;
-  transition: opacity 0.2s;
   white-space: nowrap;
+  transition: opacity 0.2s;
+  align-items: center;
 }
-.ff-get-started-btn:hover { opacity: 0.85; }
-.navbar-new.ff-scrolled .ff-get-started-btn {
-  display: inline-flex !important;
-  align-items: center !important;
-}
+#ff-nav-btn:hover { opacity: 0.85; }
+#ff-nav.ff-scrolled #ff-nav-btn { display: inline-flex; }
 
 .navitem, .nav-item, .w-nav-link {
   font-family: 'Satoshi', sans-serif !important;
@@ -1396,40 +1370,23 @@ section#plans .container-huge,
   } else { initFAQ(); }
 })();
 
-// Sticky nav — pin logo left, button right, blurred bg on scroll
+// Custom nav — inject #ff-nav, hide Webflow nav entirely
 (function() {
-  var nav = document.querySelector('.navbar-new');
-  if (!nav) return;
+  // Get logo src from the original Webflow logo img
+  var wfLogo = document.querySelector('.brand-logo-new');
+  var logoSrc = wfLogo ? wfLogo.src : 'assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/693cf790a6ce1c2047b546e1_fflogo.svg';
 
-  function pinNavItems() {
-    var logo = nav.querySelector('.brand-logo-link-new');
-    var btn = nav.querySelector('.ff-get-started-btn');
-    if (logo) {
-      logo.style.setProperty('position', 'fixed', 'important');
-      logo.style.setProperty('left', '32px', 'important');
-      logo.style.setProperty('top', '16px', 'important');
-      logo.style.setProperty('z-index', '10001', 'important');
-      logo.style.setProperty('visibility', 'visible', 'important');
-      logo.style.setProperty('display', 'block', 'important');
-    }
-    if (btn) {
-      btn.style.setProperty('position', 'fixed', 'important');
-      btn.style.setProperty('right', '32px', 'important');
-      btn.style.setProperty('top', '12px', 'important');
-      btn.style.setProperty('z-index', '10001', 'important');
-      btn.style.setProperty('visibility', 'visible', 'important');
-    }
-  }
-
-  // Run immediately and after Webflow initializes
-  pinNavItems();
-  window.addEventListener('load', pinNavItems);
-  setTimeout(pinNavItems, 300);
+  var bar = document.createElement('div');
+  bar.id = 'ff-nav';
+  bar.innerHTML =
+    '<a id="ff-nav-logo" href="/"><img src="' + logoSrc + '" alt="Flowform Studio" /></a>' +
+    '<a id="ff-nav-btn" href="#pricing">Get Started</a>';
+  document.body.insertBefore(bar, document.body.firstChild);
 
   var hero = document.querySelector('.section_main') || document.querySelector('[class*="hero"]');
   function onScroll() {
     var threshold = hero ? hero.offsetHeight * 0.7 : 400;
-    nav.classList.toggle('ff-scrolled', window.scrollY > threshold);
+    bar.classList.toggle('ff-scrolled', window.scrollY > threshold);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
