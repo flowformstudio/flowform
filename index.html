@@ -638,12 +638,14 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 
 /* 7b. LET'S BUILD — BENTO GRID */
 /* Remove outer frame */
+#about .outline-shine,
 #about .outline-shine:has(.card-howitwork.matrix),
 .outline-shine:has(.card-howitwork.matrix) {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
+  border-radius: 0 !important;
 }
 .card-howitwork.matrix {
   display: grid !important;
