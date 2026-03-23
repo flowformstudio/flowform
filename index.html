@@ -840,27 +840,25 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 .system-faq-block:last-child, .system-dropdown:last-child {
   border-bottom: none !important;
 }
-/* Smooth FAQ open/close animation */
-.dropdown-block.w-dropdown .w-dropdown-list {
-  overflow: hidden !important;
-  max-height: 0 !important;
-  opacity: 0 !important;
-  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease !important;
-  display: block !important;
-  visibility: visible !important;
+/* Smooth FAQ — JS controlled */
+.ff-faq-body {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, padding 0.3s ease;
+  padding: 0 28px;
 }
-.dropdown-block.w-dropdown.w--open .w-dropdown-list {
-  max-height: 600px !important;
-  opacity: 1 !important;
+.ff-faq-body.ff-open {
+  max-height: 600px;
+  opacity: 1;
+  padding: 0 28px 20px;
 }
-/* Rotate chevron on open */
-.dropdown-toggle.w-dropdown-toggle .w-icon-dropdown-toggle,
-.dropdown-toggle.w-dropdown-toggle [class*="icon"] {
-  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1) !important;
+.ff-faq-chevron {
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  display: inline-block;
 }
-.w-dropdown.w--open .dropdown-toggle .w-icon-dropdown-toggle,
-.w-dropdown.w--open .dropdown-toggle [class*="icon"] {
-  transform: rotate(180deg) !important;
+.ff-faq-item.ff-open .ff-faq-chevron {
+  transform: rotate(180deg);
 }
 .system-text-block, .faq-answer, [class*="faq"] h3, [class*="faq"] h4 {
   font-family: 'Satoshi', sans-serif !important;
@@ -1284,6 +1282,52 @@ section#plans .container-huge,
   } else {
     initPortfolioMarquee();
   }
+})();
+
+// Smooth FAQ accordion
+(function() {
+  function initFAQ() {
+    var dropdowns = document.querySelectorAll('#faq .dropdown-block.w-dropdown');
+    dropdowns.forEach(function(item) {
+      var toggle = item.querySelector('.dropdown-toggle');
+      var list = item.querySelector('.w-dropdown-list');
+      if (!toggle || !list) return;
+
+      // Wrap list content in our animated div
+      list.style.cssText = 'display:block!important;overflow:visible!important;position:static!important;';
+      var body = document.createElement('div');
+      body.className = 'ff-faq-body';
+      while (list.firstChild) body.appendChild(list.firstChild);
+      list.appendChild(body);
+
+      // Add chevron
+      var chevron = toggle.querySelector('.w-icon-dropdown-toggle, [class*="icon"]');
+      if (chevron) chevron.classList.add('ff-faq-chevron');
+
+      item.classList.add('ff-faq-item');
+      item.removeAttribute('data-w-id');
+
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var isOpen = item.classList.contains('ff-open');
+        // Close all
+        dropdowns.forEach(function(d) {
+          d.classList.remove('ff-open');
+          var b = d.querySelector('.ff-faq-body');
+          if (b) b.classList.remove('ff-open');
+        });
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('ff-open');
+          body.classList.add('ff-open');
+        }
+      });
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQ);
+  } else { initFAQ(); }
 })();
 
 // Sticky nav — show blurred bg + Get Started after scrolling past hero
