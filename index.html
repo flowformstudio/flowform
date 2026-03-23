@@ -637,15 +637,15 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 }
 
 /* 7b. LET'S BUILD — BENTO GRID */
-/* Remove outer frame — all states including IX2 hover */
+/* Remove outer frame — match page bg exactly */
 #about .outline-shine,
 #about .outline-shine:hover,
 #about .outline-shine[style],
 #about .outline-shine:has(.card-howitwork.matrix),
 .outline-shine:has(.card-howitwork.matrix),
 .outline-shine:has(.card-howitwork.matrix):hover {
-  background: transparent !important;
-  background-color: transparent !important;
+  background: #080a0d !important;
+  background-color: #080a0d !important;
   border: none !important;
   outline: none !important;
   box-shadow: none !important;
@@ -676,8 +676,8 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 .onit:nth-child(7) { grid-column: span 3 !important; }
 
 .onit {
-  background: #141414 !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
+  background: #1a1310 !important;
+  border: 1px solid rgba(240,90,40,0.14) !important;
   border-radius: 20px !important;
   padding: 2rem 2.2rem 2.2rem !important;
   display: flex !important;
@@ -1239,8 +1239,8 @@ section#plans .container-huge,
     var wrapper = matrix.closest('.outline-shine');
     if (!wrapper) return;
     var force = function() {
-      wrapper.style.setProperty('background', 'transparent', 'important');
-      wrapper.style.setProperty('background-color', 'transparent', 'important');
+      wrapper.style.setProperty('background', '#080a0d', 'important');
+      wrapper.style.setProperty('background-color', '#080a0d', 'important');
       wrapper.style.setProperty('border', 'none', 'important');
       wrapper.style.setProperty('box-shadow', 'none', 'important');
       wrapper.style.setProperty('border-radius', '0', 'important');
