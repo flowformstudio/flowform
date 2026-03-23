@@ -1230,6 +1230,35 @@ section#plans .container-huge,
     initPortfolioMarquee();
   }
 })();
+
+// Strip border/bg from the outline-shine wrapper around the bento grid
+(function() {
+  function stripBentoFrame() {
+    var matrix = document.querySelector('.card-howitwork.matrix');
+    if (!matrix) return;
+    var wrapper = matrix.closest('.outline-shine');
+    if (!wrapper) return;
+    var force = function() {
+      wrapper.style.setProperty('background', 'transparent', 'important');
+      wrapper.style.setProperty('background-color', 'transparent', 'important');
+      wrapper.style.setProperty('border', 'none', 'important');
+      wrapper.style.setProperty('box-shadow', 'none', 'important');
+      wrapper.style.setProperty('border-radius', '0', 'important');
+      wrapper.style.setProperty('padding', '0', 'important');
+      wrapper.removeAttribute('data-w-id');
+    };
+    force();
+    // Re-apply after IX2 may overwrite
+    wrapper.addEventListener('mouseenter', force);
+    wrapper.addEventListener('mouseleave', force);
+    new MutationObserver(force).observe(wrapper, { attributes: true, attributeFilter: ['style', 'class'] });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', stripBentoFrame);
+  } else {
+    stripBentoFrame();
+  }
+})();
 </script>
 
 <footer class="section-footer" id="footer">
