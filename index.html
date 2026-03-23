@@ -505,11 +505,17 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 .navbar-new .menu-button-new {
   display: none !important;
 }
-/* Strip the video wrapper bg so only logo shows */
+/* Strip the video wrapper bg + stretch to full width */
 .navbar-new .liqquid-glass.topmenu {
   background: transparent !important;
   background-color: transparent !important;
   background-image: none !important;
+  width: 100% !important;
+  flex: 1 1 100% !important;
+}
+/* Hide the secondary navitem video block */
+.navbar-new .liqquid-glass.navitem {
+  display: none !important;
 }
 /* Layout: logo snapped left, btn snapped right */
 .navbar-new .nav-menu-wrapper {
@@ -522,9 +528,11 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 }
 .navbar-new .brand-logo-link-new {
   margin-right: auto !important;
+  flex-shrink: 0 !important;
 }
 .navbar-new .ff-get-started-btn {
   margin-left: auto !important;
+  flex-shrink: 0 !important;
 }
 .navbar-new .nav-container,
 .navbar-new .w-container {
@@ -890,11 +898,21 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 }
 
 /* 9b. FAQ SECTION */
-.system-faq-block, .system-dropdown {
+.system-faq-block, .system-dropdown,
+#faq .dropdown-block, #faq .w-dropdown {
   border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
-.system-faq-block:last-child, .system-dropdown:last-child {
+.system-faq-block:last-child, .system-dropdown:last-child,
+#faq .dropdown-block:last-child {
   border-bottom: none !important;
+}
+#faq .dropdown-toggle {
+  padding: 20px 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
 }
 /* Smooth FAQ — grid-row trick (no overlay glitch) */
 #faq .w-dropdown-list {
