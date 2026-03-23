@@ -637,12 +637,17 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 }
 
 /* 7b. LET'S BUILD — BENTO GRID */
-/* Remove outer frame */
+/* Remove outer frame — all states including IX2 hover */
 #about .outline-shine,
+#about .outline-shine:hover,
+#about .outline-shine[style],
 #about .outline-shine:has(.card-howitwork.matrix),
-.outline-shine:has(.card-howitwork.matrix) {
+.outline-shine:has(.card-howitwork.matrix),
+.outline-shine:has(.card-howitwork.matrix):hover {
   background: transparent !important;
+  background-color: transparent !important;
   border: none !important;
+  outline: none !important;
   box-shadow: none !important;
   padding: 0 !important;
   border-radius: 0 !important;
