@@ -636,6 +636,70 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   animation-play-state: paused !important;
 }
 
+/* 7b. LET'S BUILD — BENTO GRID */
+.card-howitwork.matrix {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-rows: auto !important;
+  gap: 16px !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+.card-howitwork.matrix .heading-128 {
+  grid-column: 1 / -1 !important;
+  margin-bottom: 8px !important;
+}
+.onit {
+  background: #141414 !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
+  border-radius: 16px !important;
+  padding: 1.6rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  transition: border-color 0.2s !important;
+}
+.onit:hover {
+  border-color: rgba(255,255,255,0.14) !important;
+}
+/* Question */
+.onit1 {
+  font-family: 'Satoshi', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  color: rgba(240,237,232,0.7) !important;
+  line-height: 1.45 !important;
+  margin: 0 0 1rem !important;
+  padding-bottom: 1rem !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
+/* Answer */
+.on-it {
+  font-family: 'Nohemi', sans-serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  color: #f05a28 !important;
+  line-height: 1.2 !important;
+  margin: 1rem 0 0 !important;
+}
+/* Make first tile span 2 cols for visual variation */
+.onit:nth-child(2) {
+  grid-column: span 2 !important;
+}
+@media (max-width: 900px) {
+  .card-howitwork.matrix {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .onit:nth-child(2) {
+    grid-column: span 1 !important;
+  }
+}
+@media (max-width: 600px) {
+  .card-howitwork.matrix {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* 8. PORTFOLIO / SERVICE CARDS */
 .portfolio-sample {
   gap: 18px !important;
@@ -682,7 +746,29 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   letter-spacing: -0.01em !important;
 }
 
-/* 9. FAQ SECTION */
+/* ABOUT SECTION — remove background video */
+.backvideo2 video,
+.backvideo2 .w-background-video-atom {
+  display: none !important;
+}
+.backvideo2 {
+  background: #0c0c0c !important;
+  background-image: none !important;
+}
+
+/* 9. COMPARISON TABLE */
+.div-block-165 {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+.div-block-165 .image-84 {
+  flex-shrink: 0 !important;
+  position: relative !important;
+  top: 0 !important;
+}
+
+/* 9b. FAQ SECTION */
 .system-faq-block, .system-dropdown {
   border-bottom: 1px solid rgba(255,255,255,0.07) !important;
 }
