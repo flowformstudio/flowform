@@ -497,13 +497,39 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   margin: 0 !important;
   box-sizing: border-box !important;
 }
-/* Hide the animated video bg, decorative image, and middle nav links */
-.navbar-new .liqquid-glass.topmenu,
+/* Hide video bg, decorative img, hamburger — keep logo + btn */
+.navbar-new .liqquid-glass.topmenu video,
+.navbar-new .liqquid-glass.topmenu > div[style*="background-image"],
 .navbar-new .image-81,
-.navbar-new .nav-menu-wrapper > div:first-child,
 .navbar-new .w-nav-menu,
 .navbar-new .menu-button-new {
   display: none !important;
+}
+/* Strip the video wrapper bg so only logo shows */
+.navbar-new .liqquid-glass.topmenu {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+/* Layout: nav-menu-wrapper = flex row, logo left, btn right */
+.navbar-new .nav-menu-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+.navbar-new .nav-container,
+.navbar-new .w-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+.navbar-new .page-padding,
+.navbar-new .nav {
+  padding: 10px 32px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 /* White logo */
 .brand-logo-new {
