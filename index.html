@@ -648,6 +648,7 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 .card-howitwork.matrix {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
+  align-items: stretch !important;
   gap: 12px !important;
   padding: 0 !important;
   background: transparent !important;
@@ -675,7 +676,9 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   display: flex !important;
   flex-direction: column !important;
   justify-content: space-between !important;
+  height: 100% !important;
   min-height: 200px !important;
+  box-sizing: border-box !important;
   transition: border-color 0.25s, background 0.25s !important;
   position: relative !important;
   overflow: hidden !important;
