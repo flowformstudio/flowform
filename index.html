@@ -329,6 +329,33 @@ body {
 
 html { scroll-behavior: smooth; }
 
+/* Global rendering — smooth fonts + crisp vectors everywhere */
+*, *::before, *::after {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Smooth text on all text-bearing elements */
+body, h1, h2, h3, h4, h5, h6, p, a, span, li, button, input, textarea, label {
+  text-rendering: optimizeLegibility !important;
+}
+
+/* Crisp, anti-aliased SVG vector shapes */
+svg, svg * {
+  shape-rendering: geometricPrecision !important;
+  text-rendering: optimizeLegibility !important;
+}
+
+/* GPU-accelerate animated/transitioning elements to prevent jitter */
+[class*="animate"], [class*="reveal"], [class*="transition"],
+.reveal, .visible, .marquee, .ff-faq-body,
+img, video {
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
 body {
   font-family: 'Satoshi', sans-serif !important;
   background-color: #080a0d !important;
