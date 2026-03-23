@@ -511,13 +511,20 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   background-color: transparent !important;
   background-image: none !important;
 }
-/* Layout: nav-menu-wrapper = flex row, logo left, btn right */
+/* Layout: logo snapped left, btn snapped right */
 .navbar-new .nav-menu-wrapper {
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
   width: 100% !important;
   padding: 0 !important;
+  gap: 0 !important;
+}
+.navbar-new .brand-logo-link-new {
+  margin-right: auto !important;
+}
+.navbar-new .ff-get-started-btn {
+  margin-left: auto !important;
 }
 .navbar-new .nav-container,
 .navbar-new .w-container {
@@ -889,33 +896,36 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 .system-faq-block:last-child, .system-dropdown:last-child {
   border-bottom: none !important;
 }
-/* Smooth FAQ — JS controlled */
-/* Kill Webflow's white dropdown bg */
+/* Smooth FAQ — grid-row trick (no overlay glitch) */
 #faq .w-dropdown-list {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
   position: static !important;
-  display: block !important;
-  overflow: hidden !important;
+  display: grid !important;
+  grid-template-rows: 0fr !important;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1) !important;
   padding: 0 !important;
   z-index: auto !important;
+  overflow: hidden !important;
+}
+#faq .w-dropdown.ff-open .w-dropdown-list {
+  grid-template-rows: 1fr !important;
 }
 .ff-faq-body {
   overflow: hidden;
-  max-height: 0;
+  min-height: 0;
   opacity: 0;
-  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease;
+  transition: opacity 0.3s ease;
   background: transparent;
-  color: rgba(240,237,232,0.7);
+  color: rgba(240,237,232,0.65);
   font-family: 'Satoshi', sans-serif;
   font-size: 0.95rem;
   line-height: 1.65;
-  padding: 0 28px;
+  padding: 0 28px 0;
 }
-.ff-faq-body.ff-open {
-  max-height: 400px;
+.ff-faq-item.ff-open .ff-faq-body {
   opacity: 1;
   padding: 0 28px 20px;
 }
@@ -1385,13 +1395,10 @@ section#plans .container-huge,
         // Close all
         dropdowns.forEach(function(d) {
           d.classList.remove('ff-open');
-          var b = d.querySelector('.ff-faq-body');
-          if (b) b.classList.remove('ff-open');
         });
         // Open clicked if it was closed
         if (!isOpen) {
           item.classList.add('ff-open');
-          body.classList.add('ff-open');
         }
       });
     });
