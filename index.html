@@ -810,6 +810,28 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 .system-faq-block:last-child, .system-dropdown:last-child {
   border-bottom: none !important;
 }
+/* Smooth FAQ open/close animation */
+.dropdown-block.w-dropdown .w-dropdown-list {
+  overflow: hidden !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease !important;
+  display: block !important;
+  visibility: visible !important;
+}
+.dropdown-block.w-dropdown.w--open .w-dropdown-list {
+  max-height: 600px !important;
+  opacity: 1 !important;
+}
+/* Rotate chevron on open */
+.dropdown-toggle.w-dropdown-toggle .w-icon-dropdown-toggle,
+.dropdown-toggle.w-dropdown-toggle [class*="icon"] {
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1) !important;
+}
+.w-dropdown.w--open .dropdown-toggle .w-icon-dropdown-toggle,
+.w-dropdown.w--open .dropdown-toggle [class*="icon"] {
+  transform: rotate(180deg) !important;
+}
 .system-text-block, .faq-answer, [class*="faq"] h3, [class*="faq"] h4 {
   font-family: 'Satoshi', sans-serif !important;
 }
