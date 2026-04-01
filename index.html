@@ -258,6 +258,8 @@ body {
 [style*="display: none"][data-w-id] { display: block !important; }
 /* Force all sections visible */
 .section-wrapper, .hero-wrapper, .container, .w-container { opacity: 1 !important; transform: none !important; }
+/* Kill Webflow JS inline min-heights on plan tiles */
+.plan-first-div .plan-info[style], .plan-first-div .price-info[style] { min-height: 0 !important; }
 </style>
 <!-- Memberstack -->
 <script src="https://api.memberstack.io/static/memberstack.js?webflow" data-memberstack-id="1e308f198086f00b446174d4cc1cb658" defer></script>
@@ -1260,31 +1262,24 @@ section.section-grey.pricing {
   position: relative !important;
   z-index: 1 !important;
 }
+/* Kill Webflow JS inline min-heights */
+.plan-first-div .plan-info,
+.plan-first-div .price-info {
+  min-height: 0 !important;
+}
 .plan-first-div .plan-info {
-  order: 1 !important;
-  margin-bottom: 10px !important;
-  flex: 1 !important;
+  margin-bottom: 16px !important;
 }
 .plan-first-div .price-info {
-  order: 2 !important;
-  margin-bottom: 10px !important;
+  margin-bottom: 12px !important;
   white-space: normal !important;
-  align-self: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-start !important;
-  gap: 8px !important;
 }
-.plan-first-div .price-info .div-block-168 {
-  margin-top: auto !important;
+/* Button & checklist are siblings of plan-first-div inside div-block-153 */
+.div-block-153 > .get_started_button {
+  padding: 0 !important;
+  margin: 0 0 20px 0 !important;
 }
-.plan-first-div .get_started_button {
-  order: 3 !important;
-  padding-top: 0 !important;
-  margin-bottom: 20px !important;
-  margin-top: 0 !important;
-}
-.plan-first-div .get_started_button .main-button {
+.div-block-153 > .get_started_button .main-button {
   width: 100% !important;
   text-align: center !important;
   border-radius: 50px !important;
@@ -1292,14 +1287,14 @@ section.section-grey.pricing {
   font-size: 0.95rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.01em !important;
+  margin: 0 !important;
 }
-.plan-first-div .subscription-bottom-block {
-  order: 4 !important;
+.div-block-153 > .subscription-bottom-block {
   display: flex !important;
   flex-direction: column !important;
   gap: 8px !important;
   padding-top: 20px !important;
-  border-top: none !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
   margin-top: 0 !important;
 }
 .subscription-bottom-block .point-list {
@@ -1498,7 +1493,7 @@ section.section-grey.pricing {
 .ff-plan-light .get_started_button {
   background: transparent !important;
   padding: 0 !important;
-  margin-bottom: 32px !important;
+  margin-bottom: 20px !important;
   margin-top: 0 !important;
 }
 
