@@ -687,28 +687,6 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   border-color: rgba(255,255,255,0.2) !important;
   transform: translateY(-2px) !important;
 }
-/* Entrance glare sweep when tiles scroll into view */
-@keyframes entranceGlare {
-  0%   { transform: translateX(-200%) skewX(-20deg); opacity: 0; }
-  8%   { opacity: 1; }
-  50%  { opacity: 0.8; }
-  55%  { transform: translateX(200%) skewX(-20deg); opacity: 0; }
-  100% { transform: translateX(200%) skewX(-20deg); opacity: 0; }
-}
-.outline-shine-2.tl-in::before,
-[class*="card-howitwork"].tl-in::before,
-.legendry-content.tl-in::before,
-.onit.tl-in::before {
-  content: "" !important;
-  position: absolute !important;
-  inset: 0 !important;
-  width: 55% !important;
-  background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%) !important;
-  animation: entranceGlare 1s cubic-bezier(0.16, 1, 0.3, 1) both !important;
-  pointer-events: none !important;
-  z-index: 5 !important;
-  border-radius: inherit !important;
-}
 /* Tile inner padding */
 .card-howitwork, .card-howitwork-copy, .legendry-content-item {
   padding: 28px !important;
@@ -2328,20 +2306,6 @@ section.section-grey.pricing {
   });
 })();
 
-// Entrance glare — fires once when tile scrolls into view
-(function() {
-  var sel = '.outline-shine-2, [class*="card-howitwork"], .legendry-content, .onit';
-  var tiles = document.querySelectorAll(sel);
-  if (!tiles.length || !('IntersectionObserver' in window)) return;
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting && !e.target.classList.contains('tl-in')) {
-        e.target.classList.add('tl-in');
-      }
-    });
-  }, { threshold: 0.15 });
-  tiles.forEach(function(t) { io.observe(t); });
-})();
 </script>
 
 </body></html>
