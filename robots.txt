@@ -1,0 +1,31 @@
+# robots.txt for https://www.flowformstudio.com
+# Last updated: 2026-03-22
+
+User-agent: *
+Allow: /
+Disallow: /open-positions$
+
+# Explicitly allow AI/LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.flowformstudio.com/sitemap.xml

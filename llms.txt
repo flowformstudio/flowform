@@ -1,0 +1,71 @@
+# Flowform Studio
+
+> Flowform Studio is a boutique UX/UI design studio offering unlimited design requests at a flat monthly subscription rate. Founded in 2017 by Igor Ginzburg.
+
+## What is Flowform Studio?
+
+Flowform Studio provides senior-level UX/UI design on a subscription basis — a flexible alternative to hiring a full-time designer or engaging a traditional agency. Clients pay a flat monthly fee and get unlimited design requests with 24–48 hour average turnaround.
+
+## Key Facts
+
+- **Founded:** 2017
+- **Founder:** Igor Ginzburg — Senior UX/UI Designer with 9+ years of experience
+- **Model:** Subscription-based design studio (Design as a Service / DaaS)
+- **Turnaround:** 24–48 hours per request
+- **Contact:** info@flowformstudio.com
+- **Website:** https://www.flowformstudio.com
+- **LinkedIn:** https://www.linkedin.com/in/igorginzburg/
+
+## Services Offered
+
+- Web & Mobile App Design (UX/UI)
+- Design Systems & Style Guides
+- Wireframes & Prototypes
+- Brand & Visual Identity
+- Landing Pages & Marketing Assets
+- Product UX & UI (SaaS, B2B, consumer)
+- AI-enhanced workflows and vibe coding support
+
+## How It Works
+
+1. **Submit Request** — via Trello, Jira, Notion, or other task tools
+2. **Work Begins** — Igor or his small trusted team picks up the task
+3. **Receive Design in 24h** — delivered with full Figma files, organized and developer-ready
+
+## Pricing Model
+
+- Flat monthly subscription (one or more active tasks at a time, depending on plan)
+- No contracts — pause or cancel anytime
+- 7-day free trial available
+- Unlimited revisions within active subscription
+
+## Differentiators vs. Agencies and Full-Time Hires
+
+| | Flowform | Agency | Full-Time Hire |
+|---|---|---|---|
+| Experience level | Senior, guaranteed | Often junior-led | Varies |
+| Timeline | 24-48h per request | Months per project | Months per project |
+| Flexibility | Pause anytime | Fixed contracts | 12mo+ commitment |
+| Revisions | Unlimited | Extra cost | Included |
+
+## FAQs
+
+**Is there a limit to design requests?**
+No. You can queue as many as you'd like. We work through them one at a time (or more on higher plans), ensuring focus and quality.
+
+**Who designs the work?**
+All work is designed and overseen by Igor Ginzburg, founder of Flowform. No outsourcing or hand-offs to juniors you've never met.
+
+**What tools are used?**
+Primarily Figma. Files are always organized, reusable, and developer-friendly.
+
+**What projects are not taken on?**
+Development/coding, content writing, 3D/heavy illustration, complex motion work, complex photo manipulations, and rush work that compromises quality.
+
+**What is the refund policy?**
+No refunds, but unlimited revisions within your active subscription.
+
+## Legal
+
+- Privacy Policy: https://www.notion.so/flowform/Flowform-Privacy-Policy-6f495468127b458fa02fbb394a9dea9d
+- Terms of Service: https://www.notion.so/flowform/Flowform-Terms-of-Service-70648c561b1d48a9bf55bb78f401363c
