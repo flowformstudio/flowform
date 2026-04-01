@@ -283,6 +283,8 @@ body {
 }
 .testimonial-slider-two .reviewer-name {
   color: rgba(240,237,232,0.75) !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.01em !important;
 }
 [style*="display: none"][data-w-id] { display: block !important; }
 /* Force all sections visible */
@@ -434,6 +436,7 @@ h3, .h3 {
   font-family: 'Nohemi', sans-serif !important;
   font-weight: 600 !important;
   letter-spacing: -0.02em !important;
+  line-height: 1.3 !important;
   color: #f0ede8 !important;
 }
 
@@ -1000,6 +1003,14 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 .system-text-block, .faq-answer, [class*="faq"] h3, [class*="faq"] h4 {
   font-family: 'Satoshi', sans-serif !important;
 }
+.system-text {
+  line-height: 1.4 !important;
+  letter-spacing: 0.01em !important;
+}
+.system-text-block {
+  line-height: 1.6 !important;
+  letter-spacing: 0.01em !important;
+}
 
 /* 10. FOOTER + CONTACT FORM */
 .footer-contact {
@@ -1424,8 +1435,8 @@ section.section-grey.pricing {
   font-weight: 700;
   color: #f0ede8;
   margin: 0 0 10px;
-  letter-spacing: 0em;
-  line-height: 1.1;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 /* Description */
@@ -1514,7 +1525,7 @@ section.section-grey.pricing {
   font-family: 'Satoshi', sans-serif;
   font-size: 0.88rem;
   color: rgba(240,237,232,0.65);
-  line-height: 1.1;
+  line-height: 1.45;
   padding-left: 22px;
   position: relative;
 }
@@ -1675,11 +1686,13 @@ section.section-grey.pricing {
   background: transparent !important;
   border: 1.5px solid rgba(160,80,240,0.55) !important;
   color: rgba(180,100,255,0.95) !important;
-  padding: 14px 28px !important;
+  padding: 11px 24px !important;
+  font-family: 'Satoshi', sans-serif !important;
   font-size: 0.95rem !important;
   font-weight: 600 !important;
   border-radius: 50px !important;
   white-space: nowrap;
+  letter-spacing: 0em !important;
   transition: background 0.2s, border-color 0.2s;
 }
 .ff-sanity-btn:hover {
