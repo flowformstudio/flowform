@@ -878,20 +878,32 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 
 /* 8. PORTFOLIO / SERVICE CARDS */
 .portfolio-sample {
-  gap: 18px !important;
+  gap: 16px !important;
 }
+/* Card shell */
 .portfolio-sample .outline-shine-2 {
   padding: 0 !important;
-  height: auto !important;
   overflow: hidden !important;
   border-radius: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: #1c2333 !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
+.portfolio-sample .outline-shine-2:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07) !important;
+  border-color: rgba(255,255,255,0.18) !important;
+}
+/* Image area — top 65% of card */
 .portfolio-sample .card-howitwork-copy.service {
   position: relative !important;
   padding: 0 !important;
-  height: 320px !important;
+  height: 220px !important;
   overflow: hidden !important;
-  border-radius: 16px !important;
+  flex-shrink: 0 !important;
 }
 .portfolio-sample .image-79 {
   position: absolute !important;
@@ -902,21 +914,23 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   object-position: top center !important;
   display: block !important;
   border-radius: 0 !important;
+  transition: transform 0.35s ease !important;
 }
+.portfolio-sample .outline-shine-2:hover .image-79 {
+  transform: scale(1.03) !important;
+}
+/* Label strip — separated below image, no overlay */
 .portfolio-sample .service-title {
-  position: absolute !important;
-  bottom: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  padding: 20px 24px !important;
-  background: linear-gradient(to top, rgba(8,10,13,0.92) 0%, rgba(8,10,13,0.5) 60%, transparent 100%) !important;
-  z-index: 2 !important;
+  position: static !important;
+  padding: 16px 20px !important;
+  background: transparent !important;
+  border-top: 1px solid rgba(255,255,255,0.07) !important;
 }
 .portfolio-sample .service-title h4,
 .portfolio-sample .left-txt {
-  color: #f0ede8 !important;
+  color: rgba(240,237,232,0.9) !important;
   font-family: 'Nohemi', sans-serif !important;
-  font-size: 1.1rem !important;
+  font-size: 0.95rem !important;
   font-weight: 600 !important;
   margin: 0 !important;
   letter-spacing: -0.01em !important;
@@ -1638,22 +1652,26 @@ section.section-grey.pricing {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px;
 }
 .ff-sanity-list li {
   font-family: 'Satoshi', sans-serif;
   font-size: 0.95rem;
   color: rgba(240,237,232,0.75);
-  padding-left: 20px;
+  padding-left: 22px;
   position: relative;
-  line-height: 1.5;
+  line-height: 1.35;
 }
 .ff-sanity-list li::before {
-  content: "—";
+  content: "";
   position: absolute;
-  left: 0;
-  color: rgba(160,90,255,0.7);
-  font-weight: 600;
+  left: 2px;
+  top: 5px;
+  width: 9px;
+  height: 5px;
+  border-left: 1.5px solid rgba(160,90,255,0.55);
+  border-bottom: 1.5px solid rgba(160,90,255,0.55);
+  transform: rotate(-45deg);
 }
 .ff-sanity-right {
   display: flex;
