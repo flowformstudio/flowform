@@ -256,12 +256,18 @@ body {
 /* Override IX2 inline background-color on testimonial/shine cards */
 .outline-shine[style], .outline-shine-2[style] { background-color: #1c2333 !important; background-image: none !important; }
 /* Testimonial tiles — lighter, elevated, 3D animated */
-@keyframes cardFloat3d {
-  0%   { transform: perspective(900px) rotateX(2deg)  rotateY(-3deg) translateZ(0px); }
-  25%  { transform: perspective(900px) rotateX(-1deg) rotateY(2deg)  translateZ(10px); }
-  50%  { transform: perspective(900px) rotateX(3deg)  rotateY(1deg)  translateZ(5px); }
-  75%  { transform: perspective(900px) rotateX(-2deg) rotateY(-2deg) translateZ(8px); }
-  100% { transform: perspective(900px) rotateX(2deg)  rotateY(-3deg) translateZ(0px); }
+@keyframes cardDeck {
+  0%   { transform: perspective(1100px) rotateY(-7deg) rotateX(3deg)  translateZ(0px)  translateY(0px); }
+  15%  { transform: perspective(1100px) rotateY(5deg)  rotateX(-4deg) translateZ(30px) translateY(-6px); }
+  32%  { transform: perspective(1100px) rotateY(-4deg) rotateX(5deg)  translateZ(12px) translateY(-2px); }
+  50%  { transform: perspective(1100px) rotateY(7deg)  rotateX(-2deg) translateZ(24px) translateY(-5px); }
+  68%  { transform: perspective(1100px) rotateY(-5deg) rotateX(4deg)  translateZ(8px)  translateY(-1px); }
+  85%  { transform: perspective(1100px) rotateY(4deg)  rotateX(-5deg) translateZ(18px) translateY(-3px); }
+  100% { transform: perspective(1100px) rotateY(-7deg) rotateX(3deg)  translateZ(0px)  translateY(0px); }
+}
+@keyframes cardGlare {
+  0%, 100% { transform: translateX(-200%) skewX(-20deg); }
+  35%, 65% { transform: translateX(200%)  skewX(-20deg); }
 }
 .testimonial-slider-two .outline-shine,
 .testimonial-slider-two .outline-shine[style] {
@@ -269,11 +275,33 @@ body {
   background-image: none !important;
   border: 1px solid rgba(255,255,255,0.12) !important;
   border-radius: 20px !important;
-  box-shadow: 0 12px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06) !important;
-  animation: cardFloat3d 10s ease-in-out infinite !important;
+  box-shadow: 0 16px 56px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06) !important;
+  animation: cardDeck 13s cubic-bezier(0.37, 0, 0.63, 1) infinite !important;
   transform-style: preserve-3d !important;
   will-change: transform !important;
+  overflow: hidden !important;
+  position: relative !important;
 }
+.testimonial-slider-two .outline-shine::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 55% !important;
+  background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%) !important;
+  animation: cardGlare 13s cubic-bezier(0.37, 0, 0.63, 1) infinite !important;
+  pointer-events: none !important;
+  z-index: 10 !important;
+  border-radius: 20px !important;
+}
+/* Stagger each slide so cards are always at different phases — looks like live shuffling */
+.testimonial-slider-two .w-slide:nth-child(1) .outline-shine      { animation-delay:    0s !important; }
+.testimonial-slider-two .w-slide:nth-child(1) .outline-shine::after { animation-delay:   0s !important; }
+.testimonial-slider-two .w-slide:nth-child(2) .outline-shine      { animation-duration: 16s !important; animation-delay: -5.5s  !important; }
+.testimonial-slider-two .w-slide:nth-child(2) .outline-shine::after { animation-duration: 16s !important; animation-delay: -5.5s !important; }
+.testimonial-slider-two .w-slide:nth-child(3) .outline-shine      { animation-duration: 11s !important; animation-delay: -8.2s  !important; }
+.testimonial-slider-two .w-slide:nth-child(3) .outline-shine::after { animation-duration: 11s !important; animation-delay: -8.2s !important; }
+.testimonial-slider-two .w-slide:nth-child(4) .outline-shine      { animation-duration: 14s !important; animation-delay: -2.8s  !important; }
+.testimonial-slider-two .w-slide:nth-child(4) .outline-shine::after { animation-duration: 14s !important; animation-delay: -2.8s !important; }
 .testimonial-slider-two .neontitle {
   color: #f05a28 !important;
   opacity: 1 !important;
