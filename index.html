@@ -1139,6 +1139,161 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   background-image: none !important;
 }
 
+/* 7d. EST. SINCE 2017 — studio about section */
+.ff-studio-section {
+  padding: 6rem 4rem;
+  box-sizing: border-box;
+}
+.ff-studio-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.ff-studio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.ff-studio-tile {
+  background: #141820;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05);
+  padding: 2rem 2.2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 210px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.ff-studio-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.ff-studio-tile:nth-child(1)::before { background: radial-gradient(ellipse 90% 65% at 5%  100%, rgba(240,90,40,0.22)  0%, transparent 70%); }
+.ff-studio-tile:nth-child(2)::before { background: radial-gradient(ellipse 90% 65% at 95%  5%,  rgba(59,130,246,0.18)  0%, transparent 70%); }
+.ff-studio-tile:nth-child(3)::before { background: radial-gradient(ellipse 90% 65% at 5%  100%, rgba(20,184,166,0.18)  0%, transparent 70%); }
+.ff-studio-tile:nth-child(4)::before { background: radial-gradient(ellipse 90% 65% at 95% 100%, rgba(168,85,247,0.18)   0%, transparent 70%); }
+.ff-studio-tile:nth-child(5)::before { background: radial-gradient(ellipse 90% 65% at 5%    5%, rgba(6,182,212,0.18)   0%, transparent 70%); }
+.ff-studio-tile:hover { transform: translateY(-4px); }
+.ff-studio-tile:hover::before { opacity: 1; }
+.ff-studio-tile:nth-child(1):hover { box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 48px rgba(240,90,40,0.13);   border-color: rgba(240,90,40,0.3); }
+.ff-studio-tile:nth-child(2):hover { box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 48px rgba(59,130,246,0.13);  border-color: rgba(59,130,246,0.3); }
+.ff-studio-tile:nth-child(3):hover { box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 48px rgba(20,184,166,0.13);  border-color: rgba(20,184,166,0.3); }
+.ff-studio-tile:nth-child(4):hover { box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 48px rgba(168,85,247,0.13);  border-color: rgba(168,85,247,0.3); }
+.ff-studio-tile:nth-child(5):hover { box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 48px rgba(6,182,212,0.13);   border-color: rgba(6,182,212,0.3); }
+/* Year tile */
+.ff-studio-tile--year { min-height: 240px; }
+.ff-studio-label {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240,237,232,0.35);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.ff-studio-year {
+  font-family: 'Nohemi', sans-serif;
+  font-size: clamp(4rem, 9vw, 7rem);
+  font-weight: 800;
+  color: #f0ede8;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  margin: auto 0 0;
+  position: relative;
+  z-index: 1;
+}
+/* Bio tile */
+.ff-studio-tile--bio {
+  grid-column: span 2;
+  justify-content: center;
+  gap: 0;
+  min-height: 240px;
+}
+.ff-studio-eyebrow {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f05a28;
+  margin: 0 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+.ff-studio-bio {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: rgba(240,237,232,0.52);
+  line-height: 1.72;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.ff-studio-link {
+  color: rgba(240,237,232,0.52);
+  text-decoration: underline;
+  text-decoration-color: rgba(240,90,40,0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.ff-studio-link:hover {
+  color: #f05a28;
+  text-decoration-color: #f05a28;
+}
+/* Stat tiles */
+.ff-studio-q {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 400;
+  color: rgba(240,237,232,0.38);
+  line-height: 1.62;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.ff-studio-a {
+  font-family: 'Nohemi', sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 700;
+  color: #f0ede8;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin: 1.8rem 0 0;
+  position: relative;
+  z-index: 1;
+}
+.ff-studio-arrow {
+  font-size: 0.75em;
+  opacity: 0.35;
+  margin-left: 0.3em;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+@media (max-width: 900px) {
+  .ff-studio-tile--bio { grid-column: span 2; }
+}
+@media (max-width: 700px) {
+  .ff-studio-grid { grid-template-columns: repeat(2, 1fr); }
+  .ff-studio-tile--bio { grid-column: span 2; }
+}
+@media (max-width: 500px) {
+  .ff-studio-section { padding: 4rem 1.5rem; }
+  .ff-studio-grid { grid-template-columns: 1fr; }
+  .ff-studio-tile--bio { grid-column: span 1; }
+}
+
 /* 9. COMPARISON TABLE */
 .div-block-165 {
   display: flex !important;
@@ -2141,7 +2296,32 @@ section.section-grey.pricing {
       </div>
     </div>
   </div>
-</section><div id="about" class="ff-compare-section"><div class="ff-compare-container"><div class="ff-compare-heading"><p class="ff-compare-eyebrow">How do we compare</p><h2 class="ff-compare-title">Flowform vs. Alternatives</h2></div><div class="ff-compare-table"><div class="ff-cmp-row ff-cmp-row--header"><div class="ff-cmp-cell ff-cmp-cell--label"></div><div class="ff-cmp-cell ff-cmp-cell--flowform">Flowform</div><div class="ff-cmp-cell">Full-Time Hire</div><div class="ff-cmp-cell">Agencies</div></div><div class="ff-cmp-row"><div class="ff-cmp-cell ff-cmp-cell--label">Experience</div><div class="ff-cmp-cell ff-cmp-cell--flowform"><span class="ff-cmp-icon ff-cmp-icon--yes"></span>Senior, guaranteed</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Varies</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Often junior-led</div></div><div class="ff-cmp-row"><div class="ff-cmp-cell ff-cmp-cell--label">Timeline</div><div class="ff-cmp-cell ff-cmp-cell--flowform"><span class="ff-cmp-icon ff-cmp-icon--yes"></span>24–48 hours</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Weeks to hire</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Months per project</div></div><div class="ff-cmp-row"><div class="ff-cmp-cell ff-cmp-cell--label">Flexibility</div><div class="ff-cmp-cell ff-cmp-cell--flowform"><span class="ff-cmp-icon ff-cmp-icon--yes"></span>Pause anytime</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>12mo+ commitment</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Fixed contracts</div></div><div class="ff-cmp-row"><div class="ff-cmp-cell ff-cmp-cell--label">Revisions</div><div class="ff-cmp-cell ff-cmp-cell--flowform"><span class="ff-cmp-icon ff-cmp-icon--yes"></span>Unlimited</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>As bandwidth allows</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Limited rounds</div></div></div></div></div></div><div id="about" class="section_main small"><div class="container-steps w-container"><div class="outline-shine"><div data-poster-url="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F694e0ade73ed8fed240a24c3_liquid2_poster.0000000.jpg" data-video-urls="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F694e0ade73ed8fed240a24c3_liquid2_mp4.mp4,https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F694e0ade73ed8fed240a24c3_liquid2_webm.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="backvideo2 w-background-video w-background-video-atom"><video id="555a4516-0519-8a5b-346e-4565276d5767-video" autoplay="" loop="" style="background-image:url("&quot;https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F694e0ade73ed8fed240a24c3_liquid2_poster.0000000.jpg&quot;")" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/694e0ade73ed8fed240a24c3_liquid2_mp4.mp4" data-wf-ignore="true"/><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/694e0ade73ed8fed240a24c3_liquid2_webm.webm" data-wf-ignore="true"/></video><div id="how-it-works" class="runbyigor"><div class="div-block-156"><h3 class="runby">EST. SINCE</h3><h3 class="runby big">2017</h3></div><h3 class="runby">Flowform is operated by <a href="https://www.linkedin.com/in/igorginzburg/">Igor Ginzburg</a>. As a boutique studio, we partner with a limited number of clients to ensure uncompromising quality in every engagement.</h3></div></div></div></div></div><div id="services" class="section_main hide"><div class="container-huge w-container"><div data-w-id="160d2302-7609-c7c8-1147-d988093284d2" style="opacity:0" class="banner"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63fcee936021ffb0e23c491f_STARTUP 10.svg" alt="Startup illustration showing design process" class="flash-banner-image"/><div class="div-block-86"><h2 class="flash-title">Propel your team forward with a surge of dynamic energy and an innovative perspective</h2></div></div><div class="legendry-component"></div></div></div><div id="terms" class="section-grey hide"><div class="container-huge w-container"><div class="legendry-component"><div class="section_title margin-bottom-60px"><h2 data-w-id="796f66e0-df1c-8c66-8dc8-f9bfb80f3ec7" style="opacity:0" class="heading-103">The Perks of Working With Us</h2></div><div data-w-id="796f66e0-df1c-8c66-8dc8-f9bfb80f3ecb" style="opacity:0"><div class="w-layout-grid legendry-content-grid"><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3efe-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7a5f425c837b90a52d_infinity.svg" alt="Infinity icon representing unlimited design requests" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Unlimited Design Requests</h4><div><strong class="small-txt xs">Submit unlimited ideas. We’ll handle them one at a time, no hassle</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ecd-fdbd6d93" class="legendry-content-wrapper hide"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63dd8a664940a686aabeb3d3_Time.svg" alt="speed up time" width="32" class="icon-lottie-small"/></div><h4>Fast Turn Around Times</h4><div class="term-description">Receive the high quality work you need as quickly as possible. Typically ready in 24-48 hours.</div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ed4-fdbd6d93" class="legendry-content-wrapper hide"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63dd8aabd349a2bfb1c4b163_star.svg" alt="star" width="32" class="icon-lottie-small"/></div><h4>World-Class design</h4><div class="term-description">We work diligently to ensure that every project is completed to the highest standard.</div></div><div id="w-node-a9ec6b1b-5190-f21f-806e-6682f7e889ba-fdbd6d93" class="legendry-content-wrapper grad"><h4 class="bento-h1 white">Cut Your Hiring Costs in Half</h4><div class="div-block-131"><h4 class="bento-h1 jumbo-bento">50% </h4><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh.webp" width="560" sizes="(max-width: 767px) 100vw, 560px" alt="Decorative swoosh accent" srcset="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh-p-500.webp 500w, assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh-p-800.webp 800w, assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh-p-1080.webp 1080w, assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh.webp 1499w" class="image-68"/></div><div class="term-description white">Save 50% compared to hiring in-house with our flat-rate design solution.</div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3edb-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4c70d1d806d04342d700_star.svg" alt="Star icon representing quality design" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Dedicated Design Expert</h4><div><strong class="small-txt xs">Work directly with a designer who truly gets your brand</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ee2-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7a289ad134d7afd88c_Love Bubble Chat 2.svg" alt="Chat bubble icon representing client communication" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Impactful UX/UI Design</h4><div><strong class="small-txt xs">Custom UX/UI that fits your goals. No hidden fees, ever</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ee9-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7afdc3db427c28c2e2_coffee.svg" width="80" alt="Coffee cup icon representing relaxed collaboration" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Top-Tier Craftsmanship</h4><div><strong class="small-txt xs">High-quality designs, crafted with care down to every detail.</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ef0-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7a67c77c4185e8b7fe_Gesture Double Tap.svg" alt="Double tap gesture icon representing ease of use" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Pause Anytime</h4><div><strong class="small-txt xs">Your time never expires. Pause anytime and pick up where you left off!</strong></div></div></div><div id="w-node-c0f8405a-8f29-c360-3dec-1fe356e0ea7d-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7af167079227fff08b_agile.svg" alt="Agile workflow icon representing fast iteration" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Agile and Adaptable</h4><div><strong class="small-txt xs">Fast and flexible, we adapt to your changing needs with ease</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ef7-fdbd6d93" class="legendry-content-wrapper hide"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63dd852690cf331b6093e701_fixed-rate.svg" alt="dollar sign" width="32" class="icon-lottie-small"/></div><h4>Fixed Rate</h4><div class="term-description">With no surprise fees you can budget accordingly for your project.</div></div><div id="w-node-_0d4789ed-6a42-23ec-6501-5daa9f437989-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7ad1d806d04345b772_Workflow Teamwork User High Five.svg" alt="Teamwork high five icon representing collaboration" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Easy Collaboration</h4><div><strong class="small-txt xs">Collaborate with a friendly team that feels like part of your own</strong></div></div></div></div></div></div></div></div><section id="plans" class="section-grey pricing"><div id="plans" class="container-huge w-container"><div class="section_title margin-bottom-94px narrow"><div class="client-sub-text hide">I design and develop services for customers of all sizes, specializing in creating stylish, modern websites<br/></div><h4 class="neontitle">Pricing</h4><h2>Simple, Predictable Membership</h2><div class="herosubtext">An ongoing engagement where Flowform operates as an extension of your team. Leading product, UX, and UI design across initiatives.<br/></div></div><div id="ff-plans">
+</section><div id="about" class="ff-compare-section"><div class="ff-compare-container"><div class="ff-compare-heading"><p class="ff-compare-eyebrow">How do we compare</p><h2 class="ff-compare-title">Flowform vs. Alternatives</h2></div><div class="ff-compare-table"><div class="ff-cmp-row ff-cmp-row--header"><div class="ff-cmp-cell ff-cmp-cell--label"></div><div class="ff-cmp-cell ff-cmp-cell--flowform">Flowform</div><div class="ff-cmp-cell">Full-Time Hire</div><div class="ff-cmp-cell">Agencies</div></div><div class="ff-cmp-row"><div class="ff-cmp-cell ff-cmp-cell--label">Experience</div><div class="ff-cmp-cell ff-cmp-cell--flowform"><span class="ff-cmp-icon ff-cmp-icon--yes"></span>Senior, guaranteed</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Varies</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Often junior-led</div></div><div class="ff-cmp-row"><div class="ff-cmp-cell ff-cmp-cell--label">Timeline</div><div class="ff-cmp-cell ff-cmp-cell--flowform"><span class="ff-cmp-icon ff-cmp-icon--yes"></span>24–48 hours</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Weeks to hire</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Months per project</div></div><div class="ff-cmp-row"><div class="ff-cmp-cell ff-cmp-cell--label">Flexibility</div><div class="ff-cmp-cell ff-cmp-cell--flowform"><span class="ff-cmp-icon ff-cmp-icon--yes"></span>Pause anytime</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>12mo+ commitment</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Fixed contracts</div></div><div class="ff-cmp-row"><div class="ff-cmp-cell ff-cmp-cell--label">Revisions</div><div class="ff-cmp-cell ff-cmp-cell--flowform"><span class="ff-cmp-icon ff-cmp-icon--yes"></span>Unlimited</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>As bandwidth allows</div><div class="ff-cmp-cell"><span class="ff-cmp-icon ff-cmp-icon--no"></span>Limited rounds</div></div></div></div></div></div><section id="about" class="ff-studio-section">
+  <div class="ff-studio-inner">
+    <div class="ff-studio-grid">
+      <div class="ff-studio-tile ff-studio-tile--year">
+        <p class="ff-studio-label">Est. Since</p>
+        <p class="ff-studio-year">2017</p>
+      </div>
+      <div class="ff-studio-tile ff-studio-tile--bio">
+        <p class="ff-studio-eyebrow">About the studio</p>
+        <p class="ff-studio-bio">Flowform is operated by <a href="https://www.linkedin.com/in/igorginzburg/" class="ff-studio-link" target="_blank" rel="noopener">Igor Ginzburg</a>. As a boutique studio, we partner with a limited number of clients to ensure uncompromising quality in every engagement.</p>
+      </div>
+      <div class="ff-studio-tile">
+        <p class="ff-studio-q">Of product design expertise.</p>
+        <p class="ff-studio-a">7+ Years<span class="ff-studio-arrow">&#x2192;</span></p>
+      </div>
+      <div class="ff-studio-tile">
+        <p class="ff-studio-q">Clients at a time, full attention.</p>
+        <p class="ff-studio-a">Boutique<span class="ff-studio-arrow">&#x2192;</span></p>
+      </div>
+      <div class="ff-studio-tile">
+        <p class="ff-studio-q">Quality guaranteed on every engagement.</p>
+        <p class="ff-studio-a">Senior-level<span class="ff-studio-arrow">&#x2192;</span></p>
+      </div>
+    </div>
+  </div>
+</section><div id="services" class="section_main hide"><div class="container-huge w-container"><div data-w-id="160d2302-7609-c7c8-1147-d988093284d2" style="opacity:0" class="banner"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63fcee936021ffb0e23c491f_STARTUP 10.svg" alt="Startup illustration showing design process" class="flash-banner-image"/><div class="div-block-86"><h2 class="flash-title">Propel your team forward with a surge of dynamic energy and an innovative perspective</h2></div></div><div class="legendry-component"></div></div></div><div id="terms" class="section-grey hide"><div class="container-huge w-container"><div class="legendry-component"><div class="section_title margin-bottom-60px"><h2 data-w-id="796f66e0-df1c-8c66-8dc8-f9bfb80f3ec7" style="opacity:0" class="heading-103">The Perks of Working With Us</h2></div><div data-w-id="796f66e0-df1c-8c66-8dc8-f9bfb80f3ecb" style="opacity:0"><div class="w-layout-grid legendry-content-grid"><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3efe-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7a5f425c837b90a52d_infinity.svg" alt="Infinity icon representing unlimited design requests" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Unlimited Design Requests</h4><div><strong class="small-txt xs">Submit unlimited ideas. We’ll handle them one at a time, no hassle</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ecd-fdbd6d93" class="legendry-content-wrapper hide"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63dd8a664940a686aabeb3d3_Time.svg" alt="speed up time" width="32" class="icon-lottie-small"/></div><h4>Fast Turn Around Times</h4><div class="term-description">Receive the high quality work you need as quickly as possible. Typically ready in 24-48 hours.</div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ed4-fdbd6d93" class="legendry-content-wrapper hide"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63dd8aabd349a2bfb1c4b163_star.svg" alt="star" width="32" class="icon-lottie-small"/></div><h4>World-Class design</h4><div class="term-description">We work diligently to ensure that every project is completed to the highest standard.</div></div><div id="w-node-a9ec6b1b-5190-f21f-806e-6682f7e889ba-fdbd6d93" class="legendry-content-wrapper grad"><h4 class="bento-h1 white">Cut Your Hiring Costs in Half</h4><div class="div-block-131"><h4 class="bento-h1 jumbo-bento">50% </h4><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh.webp" width="560" sizes="(max-width: 767px) 100vw, 560px" alt="Decorative swoosh accent" srcset="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh-p-500.webp 500w, assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh-p-800.webp 800w, assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh-p-1080.webp 1080w, assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63f82d48d2d794a8acd9dfa8_swoosh.webp 1499w" class="image-68"/></div><div class="term-description white">Save 50% compared to hiring in-house with our flat-rate design solution.</div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3edb-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4c70d1d806d04342d700_star.svg" alt="Star icon representing quality design" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Dedicated Design Expert</h4><div><strong class="small-txt xs">Work directly with a designer who truly gets your brand</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ee2-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7a289ad134d7afd88c_Love Bubble Chat 2.svg" alt="Chat bubble icon representing client communication" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Impactful UX/UI Design</h4><div><strong class="small-txt xs">Custom UX/UI that fits your goals. No hidden fees, ever</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ee9-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7afdc3db427c28c2e2_coffee.svg" width="80" alt="Coffee cup icon representing relaxed collaboration" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Top-Tier Craftsmanship</h4><div><strong class="small-txt xs">High-quality designs, crafted with care down to every detail.</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ef0-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7a67c77c4185e8b7fe_Gesture Double Tap.svg" alt="Double tap gesture icon representing ease of use" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Pause Anytime</h4><div><strong class="small-txt xs">Your time never expires. Pause anytime and pick up where you left off!</strong></div></div></div><div id="w-node-c0f8405a-8f29-c360-3dec-1fe356e0ea7d-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7af167079227fff08b_agile.svg" alt="Agile workflow icon representing fast iteration" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Agile and Adaptable</h4><div><strong class="small-txt xs">Fast and flexible, we adapt to your changing needs with ease</strong></div></div></div><div id="w-node-_796f66e0-df1c-8c66-8dc8-f9bfb80f3ef7-fdbd6d93" class="legendry-content-wrapper hide"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/63dd852690cf331b6093e701_fixed-rate.svg" alt="dollar sign" width="32" class="icon-lottie-small"/></div><h4>Fixed Rate</h4><div class="term-description">With no surprise fees you can budget accordingly for your project.</div></div><div id="w-node-_0d4789ed-6a42-23ec-6501-5daa9f437989-fdbd6d93" class="legendry-content-wrapper"><div class="icon_lottie-div"><img loading="lazy"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/64ac4e7ad1d806d04345b772_Workflow Teamwork User High Five.svg" alt="Teamwork high five icon representing collaboration" class="image-71"/></div><div class="f-div"><h4 class="bento-h3">Easy Collaboration</h4><div><strong class="small-txt xs">Collaborate with a friendly team that feels like part of your own</strong></div></div></div></div></div></div></div></div><section id="plans" class="section-grey pricing"><div id="plans" class="container-huge w-container"><div class="section_title margin-bottom-94px narrow"><div class="client-sub-text hide">I design and develop services for customers of all sizes, specializing in creating stylish, modern websites<br/></div><h4 class="neontitle">Pricing</h4><h2>Simple, Predictable Membership</h2><div class="herosubtext">An ongoing engagement where Flowform operates as an extension of your team. Leading product, UX, and UI design across initiatives.<br/></div></div><div id="ff-plans">
 
   <!-- ── PLAN CARD ──────────────────────────────────────────── -->
   <div class="ff-plan">
