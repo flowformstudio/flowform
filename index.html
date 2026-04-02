@@ -1132,7 +1132,8 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   .ff-build-header { flex-direction: column; align-items: flex-start; }
   .ff-build-subtext { text-align: left; max-width: 100%; }
   .ff-build-grid { grid-template-columns: repeat(2, 1fr); }
-  .ff-build-tile--full { grid-column: span 2; }
+  .ff-build-tile--wide,
+  .ff-build-tile--full { grid-column: span 1; }
 }
 @media (max-width: 600px) {
   .ff-build-section { padding: 4rem 1.5rem; }
@@ -1372,6 +1373,7 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 }
 .ff-why-header {
   margin-bottom: 3rem;
+  text-align: center;
 }
 .ff-why-eyebrow {
   font-family: 'Satoshi', sans-serif;
@@ -1381,6 +1383,8 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   text-transform: uppercase;
   color: #f05a28;
   margin: 0 0 0.8rem;
+  text-align: center !important;
+  display: block;
 }
 .ff-why-heading {
   font-family: 'Nohemi', sans-serif;
@@ -1390,6 +1394,7 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   letter-spacing: -0.025em;
   line-height: 1.1;
   margin: 0;
+  text-align: center;
 }
 .ff-why-heading span {
   color: #f0ede8;
@@ -1402,6 +1407,8 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   color: rgba(240,237,232,0.38);
   line-height: 1.65;
   margin-top: 0.8rem;
+  text-align: center !important;
+  display: block;
 }
 .ff-why-grid {
   display: grid;
@@ -1449,8 +1456,8 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   min-height: 240px;
 }
 .ff-why-icon {
-  width: 56px;
-  height: 56px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
   filter: brightness(0) invert(1);
   opacity: 0.5;
@@ -2450,7 +2457,28 @@ section.section-grey.pricing {
   box-sizing: border-box;
 }
 @media (max-width: 768px) {
-  .ff-compare-container { padding: 0 24px; }
+  .ff-compare-container { padding: 0 16px; }
+  .ff-compare-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+  }
+  .ff-cmp-row {
+    grid-template-columns: 100px 130px 120px 120px;
+    min-width: 470px;
+  }
+  .ff-cmp-cell {
+    padding: 14px 12px;
+    font-size: 0.82rem;
+  }
+  .ff-cmp-cell--label {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+  .ff-cmp-row--header .ff-cmp-cell {
+    font-size: 0.7rem;
+    padding: 12px 12px;
+  }
 }
 .ff-compare-heading {
   text-align: center;
