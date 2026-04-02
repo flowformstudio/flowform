@@ -697,6 +697,14 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   line-height: 1.6 !important;
   color: rgba(240,237,232,0.65) !important;
 }
+/* Why Teams tile sub-text — match ff-build-q / ff-studio-q size */
+.body.why {
+  font-size: 1.08rem !important;
+  font-family: 'Satoshi', sans-serif !important;
+  color: rgba(240,237,232,0.45) !important;
+  line-height: 1.6 !important;
+}
+
 /* Igor Ginzburg link in about — match surrounding body font */
 .runby a, .runby {
   font-family: 'Satoshi', sans-serif !important;
@@ -1620,11 +1628,25 @@ section#plans .container-huge,
   width: 100% !important;
   padding-left: 2rem !important;
   padding-right: 2rem !important;
+  box-sizing: border-box !important;
+}
+/* Override Webflow w-container tablet/mobile max-width so DSC card stays full-width */
+@media (max-width: 991px) {
+  section#plans .container-huge,
+  #plans.container-huge,
+  .ff-sanity-section .container-huge {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
 }
 /* Remove page-padding horizontal inset so sanity card aligns with plan cards */
 .ff-sanity-section .page-padding {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 /* Stitch plans + sanity into one unified pricing block */
@@ -1806,10 +1828,10 @@ section.section-grey.pricing {
 /* Description */
 .ff-plan__desc {
   font-family: 'Satoshi', sans-serif;
-  font-size: 0.9rem;
-  color: rgba(240,237,232,0.5);
-  line-height: 1.35;
-  margin: 0 0 24px;
+  font-size: 0.95rem;
+  color: rgba(240,237,232,0.48);
+  line-height: 1.58;
+  margin: 0 0 28px;
 }
 
 /* Price */
@@ -1887,21 +1909,34 @@ section.section-grey.pricing {
 }
 .ff-plan__features li {
   font-family: 'Satoshi', sans-serif;
-  font-size: 0.88rem;
-  color: rgba(240,237,232,0.38);
-  line-height: 1.45;
+  font-size: 0.95rem;
+  color: rgba(240,237,232,0.55);
+  line-height: 1.5;
   padding-left: 22px;
   position: relative;
 }
-.ff-plan__features li::before {
+/* Plan 1 (Marketing — blue tile) checkmarks */
+.ff-plan:first-child .ff-plan__features li::before {
   content: '';
   position: absolute;
-  left: 0;
+  left: 1px;
   top: 5px;
-  width: 12px;
-  height: 7px;
-  border-left: 1.5px solid rgba(240,90,40,0.28);
-  border-bottom: 1.5px solid rgba(240,90,40,0.28);
+  width: 11px;
+  height: 6px;
+  border-left: 1.5px solid rgba(59,130,246,0.7);
+  border-bottom: 1.5px solid rgba(59,130,246,0.7);
+  transform: rotate(-45deg);
+}
+/* Plan 2 (Full Support — orange tile) checkmarks */
+.ff-plan--featured .ff-plan__features li::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: 5px;
+  width: 11px;
+  height: 6px;
+  border-left: 1.5px solid rgba(240,90,40,0.7);
+  border-bottom: 1.5px solid rgba(240,90,40,0.7);
   transform: rotate(-45deg);
 }
 
@@ -1922,7 +1957,7 @@ section.section-grey.pricing {
   border: 1px solid rgba(160,80,240,0.28);
   border-radius: 20px;
   background: #0a070f;
-  padding: 48px;
+  padding: 48px 44px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -1970,7 +2005,7 @@ section.section-grey.pricing {
 }
 .ff-sanity-body {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: space-between;
   gap: 48px;
 }
@@ -1989,10 +2024,10 @@ section.section-grey.pricing {
 }
 .ff-sanity-sub {
   font-family: 'Satoshi', sans-serif;
-  font-size: 1.05rem;
-  color: rgba(240,237,232,0.55);
+  font-size: 0.95rem;
+  color: rgba(240,237,232,0.48);
   margin: 0 0 28px;
-  line-height: 1.6;
+  line-height: 1.58;
 }
 .ff-sanity-list {
   list-style: none;
@@ -2005,29 +2040,29 @@ section.section-grey.pricing {
 .ff-sanity-list li {
   font-family: 'Satoshi', sans-serif;
   font-size: 0.95rem;
-  color: rgba(240,237,232,0.75);
+  color: rgba(240,237,232,0.55);
   padding-left: 22px;
   position: relative;
-  line-height: 1.35;
+  line-height: 1.5;
 }
 .ff-sanity-list li::before {
   content: "";
   position: absolute;
-  left: 2px;
+  left: 1px;
   top: 5px;
-  width: 9px;
-  height: 5px;
-  border-left: 1.5px solid rgba(160,90,255,0.55);
-  border-bottom: 1.5px solid rgba(160,90,255,0.55);
+  width: 11px;
+  height: 6px;
+  border-left: 1.5px solid rgba(160,90,255,0.7);
+  border-bottom: 1.5px solid rgba(160,90,255,0.7);
   transform: rotate(-45deg);
 }
 .ff-sanity-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  justify-content: flex-end;
   gap: 8px;
   flex-shrink: 0;
-  padding-top: 4px;
 }
 .ff-sanity-price {
   font-family: 'Nohemi', sans-serif;
@@ -2076,9 +2111,9 @@ section.section-grey.pricing {
 
 /* ══ PRICING UNIFICATION ══ */
 
-/* Close the gap so DSC tile sits right below the plan tiles */
+/* DSC tile — small top gap so glow doesn't bleed into plans on wide screens */
 .ff-sanity-section {
-  padding-top: 0 !important;
+  padding-top: 24px !important;
   margin-top: 0 !important;
 }
 
@@ -2309,7 +2344,7 @@ section.section-grey.pricing {
       </div>
       <div class="ff-studio-tile">
         <p class="ff-studio-q">Of product design expertise.</p>
-        <p class="ff-studio-a">7+ Years</p>
+        <p class="ff-studio-a">10+ Years</p>
       </div>
       <div class="ff-studio-tile">
         <p class="ff-studio-q">Clients at a time, full attention.</p>
