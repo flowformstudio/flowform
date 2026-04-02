@@ -1506,6 +1506,8 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
   text-transform: uppercase;
   color: #f05a28;
   margin: 0 0 0.8rem;
+  text-align: center !important;
+  display: block;
 }
 .ff-faq-heading {
   font-family: 'Nohemi', sans-serif;
@@ -1574,6 +1576,18 @@ p, li, span:not([class*="brand"]):not([class*="neon"]) {
 }
 .ff-faq-item[open] > .ff-faq-body-wrap {
   grid-template-rows: 1fr;
+}
+/* Closing state — JS applies this class to animate before removing [open] */
+.ff-faq-item.ff-closing > .ff-faq-body-wrap {
+  grid-template-rows: 0fr !important;
+}
+.ff-faq-item.ff-closing > summary {
+  color: rgba(240,237,232,0.72) !important;
+}
+.ff-faq-item.ff-closing > summary .ff-faq-icon {
+  transform: none !important;
+  background: transparent !important;
+  border-color: rgba(240,90,40,0.35) !important;
 }
 .ff-faq-body {
   overflow: hidden;
