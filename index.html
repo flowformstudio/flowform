@@ -2595,6 +2595,50 @@ section.section-grey.pricing {
   .ff-cmp-cell { padding: 14px 10px; font-size: 0.8rem; gap: 6px; }
 }
 
+/* ── Border-beam on testimonial tiles ────────────────────────────────────────
+   Equivalent to: <BorderBeam size="sm" colorVariant="colorful"
+                               duration={1.96} strength={0.89} />
+   Uses CSS @property (Chrome 85+, Safari 16.4+, Edge 85+) to animate the
+   conic-gradient angle; older browsers simply see no beam.
+   ─────────────────────────────────────────────────────────────────────────── */
+@property --bb-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes bb-spin {
+  to { --bb-angle: 360deg; }
+}
+/* The injected <span> sits on top of the card, masked to the 1.5px border zone */
+.bb-beam {
+  position: absolute !important;
+  inset: -1px !important;
+  border-radius: 21px !important;   /* card radius 20px + 1px overhang */
+  padding: 1.5px !important;         /* "sm" beam thickness */
+  background: conic-gradient(
+    from var(--bb-angle) at 50% 50%,
+    transparent 0%,
+    transparent 72%,
+    rgba(139, 92, 246, 0)   76%,
+    rgba(139, 92, 246, 0.89) 80%,    /* purple */
+    rgba(219, 39, 119, 0.89) 86%,    /* pink   */
+    rgba(249, 115, 22, 0.89) 91%,    /* orange */
+    rgba(250, 204, 21, 0.89) 95%,    /* yellow */
+    rgba(250, 204, 21, 0)   98%,
+    transparent 100%
+  ) !important;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0) !important;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0) !important;
+  -webkit-mask-composite: destination-out !important;
+  mask-composite: exclude !important;
+  pointer-events: none !important;
+  z-index: 25 !important;
+  animation: bb-spin 1.96s linear infinite !important;
+}
 
 </style>
 <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script></head><body><div data-animation="default" class="navbar-new w-nav" data-easing2="ease-in" data-easing="ease-in-out-quad" data-collapse="medium" data-w-id="49bb4e56-4b1e-5665-620d-eb47e1d38830" role="banner" data-duration="200" data-wf--nav-bar-new--variant="base" data-doc-height="1"><div class="page-padding nav"><div class="nav-container w-container"><div data-poster-url="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6958b602dcc9865a1107a354_Sequence%2001_4_poster.0000000.jpg" data-video-urls="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6958b602dcc9865a1107a354_Sequence%2001_4_mp4.mp4,https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6958b602dcc9865a1107a354_Sequence%2001_4_webm.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="liqquid-glass topmenu w-background-video w-background-video-atom"><video id="f2cfa0a7-373c-fa3b-583d-87ea1c1c5a67-video" autoplay="" loop="" preload="metadata" style="background-image:url("&quot;https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6958b602dcc9865a1107a354_Sequence%2001_4_poster.0000000.jpg&quot;")" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6958b602dcc9865a1107a354_Sequence 01_4_mp4.mp4" data-wf-ignore="true"/><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6958b602dcc9865a1107a354_Sequence 01_4_webm.webm" data-wf-ignore="true"/></video><div class="nav-menu-wrapper"><div><img loading="eager"  src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6964f64242482e79488d43b9_Vectorsmall2.webp" width="29" alt="Flowform Studio decorative element" class="image-81"/></div><a href="/" aria-current="page" class="brand-logo-link-new w-nav-brand w--current"><img loading="eager"  width="173" alt="Brand Logo" src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/693cf790a6ce1c2047b546e1_fflogo.svg" class="brand-logo-new"/></a><a href="#pricing" class="ff-get-started-btn">Get Started</a><div class="menu-button-new w-nav-button"></div><div data-poster-url="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6949cd5716eb4f35db38c3c1_slow2_poster.0000000.jpg" data-video-urls="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6949cd5716eb4f35db38c3c1_slow2_mp4.mp4,https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6949cd5716eb4f35db38c3c1_slow2_webm.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="liqquid-glass navitem w-background-video w-background-video-atom"><video id="430c0583-47b6-a47e-3954-ac25a825788f-video" autoplay="" loop="" style="background-image:url("&quot;https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6949cd5716eb4f35db38c3c1_slow2_poster.0000000.jpg&quot;")" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6949cd5716eb4f35db38c3c1_slow2_mp4.mp4" data-wf-ignore="true"/><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6949cd5716eb4f35db38c3c1_slow2_webm.webm" data-wf-ignore="true"/></video><a href="https://calendly.com/flowform/flowform-intro" class="main-button medium w-button">See Pricing</a></div></div></div></div></div></div><div id="Poster" class="section_poster newposter"><div class="container-3 w-container"><div class="postercontent"><div data-w-id="08bbe8b5-d74f-b0a9-ef45-8fde7d58f00a" class="poster-content"><div class="div-block-75"><div class="jumbo-wrap"><div class="div-block-96"><div data-w-id="43bb24e6-e682-1c23-f5fa-af64f95f8ae2" class="div-block-140"><div class="cicle"></div><div class="accepting-txt">Accepting projects for August<br/></div></div><h1 class="heading-130">Ship products faster with <span class="text-span-46">senior-level design</span><br/></h1></div></div></div><div class="div-block-169"><div class="herosubtext">Senior product design. No hiring. No waiting.<br/></div></div><div class="_2buttondiv"><div data-poster-url="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6959ae9894c29fa0938d73e6_Button-lof-res_poster.0000000.jpg" data-video-urls="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6959ae9894c29fa0938d73e6_Button-lof-res_mp4.mp4,https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6959ae9894c29fa0938d73e6_Button-lof-res_webm.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="liqquid-glass w-background-video w-background-video-atom"><video id="b9c19301-0382-72d1-b9ca-1b3e9458e9df-video" autoplay="" loop="" style="background-image:url("&quot;https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6959ae9894c29fa0938d73e6_Button-lof-res_poster.0000000.jpg&quot;")" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6959ae9894c29fa0938d73e6_Button-lof-res_mp4.mp4" data-wf-ignore="true"/><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6959ae9894c29fa0938d73e6_Button-lof-res_webm.webm" data-wf-ignore="true"/></video><a href="#plans" class="main-button w-button">View Pricing</a></div><div data-poster-url="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6958b602dcc9865a1107a354_Sequence%2001_4_poster.0000000.jpg" data-video-urls="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6958b602dcc9865a1107a354_Sequence%2001_4_mp4.mp4,https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6958b602dcc9865a1107a354_Sequence%2001_4_webm.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="liqquid-glass center w-background-video w-background-video-atom"><video id="3b0baa2e-17d2-e7fb-de6e-5973343c3532-video" autoplay="" loop="" style="background-image:url("&quot;https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6958b602dcc9865a1107a354_Sequence%2001_4_poster.0000000.jpg&quot;")" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6958b602dcc9865a1107a354_Sequence 01_4_mp4.mp4" data-wf-ignore="true"/><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6958b602dcc9865a1107a354_Sequence 01_4_webm.webm" data-wf-ignore="true"/></video><a href="https://calendly.com/flowform/30min" class="main-button _2ndbutton w-button" style="display:none">Book discovery call</a></div></div></div></div></div><div data-poster-url="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6959adf11e823514ccbdf166_Poster-HighRes_poster.0000000.jpg" data-video-urls="https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6959adf11e823514ccbdf166_Poster-HighRes_mp4.mp4,https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6959adf11e823514ccbdf166_Poster-HighRes_webm.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" class="background-video-4 w-background-video w-background-video-atom"><video id="99f5d793-7f45-a2e1-264d-23657bedb186-video" autoplay="" loop="" style="background-image:url("&quot;https://cdn.prod.website-files.com/5ad545db3d5f83b4960affaf%2F6959adf11e823514ccbdf166_Poster-HighRes_poster.0000000.jpg&quot;")" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover"><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6959adf11e823514ccbdf166_Poster-HighRes_mp4.mp4" data-wf-ignore="true"/><source src="assets/cdn.prod.website-files.com/5ad545db3d5f83b4960affaf/6959adf11e823514ccbdf166_Poster-HighRes_webm.webm" data-wf-ignore="true"/></video></div></div><div class="section_main logos">
@@ -3136,6 +3180,28 @@ section.section-grey.pricing {
   });
 })();
 
+</script>
+
+<script>
+/* Border-beam — inject into testimonial cards once Webflow slider has rendered */
+(function() {
+  var STAGGER = 1.96 / 4; /* offset each card by one quarter revolution */
+  function injectBeams() {
+    document.querySelectorAll('.testimonial-slider-two .outline-shine').forEach(function(card, i) {
+      if (card.querySelector('.bb-beam')) return; /* already injected */
+      var beam = document.createElement('span');
+      beam.className = 'bb-beam';
+      beam.style.animationDelay = (-i * STAGGER).toFixed(3) + 's';
+      card.appendChild(beam);
+    });
+  }
+  /* Run after page load + small delay to ensure Webflow slider has built its DOM */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() { setTimeout(injectBeams, 600); });
+  } else {
+    setTimeout(injectBeams, 600);
+  }
+})();
 </script>
 
 </body></html>
