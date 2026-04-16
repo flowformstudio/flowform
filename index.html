@@ -2637,7 +2637,7 @@ section.section-grey.pricing {
   mask-composite: exclude !important;
   pointer-events: none !important;
   z-index: 25 !important;
-  animation: bb-spin 1.96s linear infinite !important;
+  animation: bb-spin 5s linear infinite !important;
 }
 
 </style>
@@ -3185,7 +3185,7 @@ section.section-grey.pricing {
 <script>
 /* Border-beam — inject into testimonial cards once Webflow slider has rendered */
 (function() {
-  var STAGGER = 1.96 / 4; /* offset each card by one quarter revolution */
+  var STAGGER = 5 / 4; /* offset each card by one quarter revolution */
   function injectBeams() {
     document.querySelectorAll('.testimonial-slider-two .outline-shine').forEach(function(card, i) {
       if (card.querySelector('.bb-beam')) return; /* already injected */
